@@ -2,11 +2,11 @@ import java.util.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-// ══════════════════════════════════════════════════════
-//  CLÍNICA IBEROAMERICANA - Sistema de Historial Clínico
-// ══════════════════════════════════════════════════════
 
-// ─── MODELO: Paciente ─────────────────────────────────
+//CLÍNICA IBEROAMERICANA
+
+
+//MODELO: Paciente
 class Paciente {
     private static int contadorId = 1;
 
@@ -45,7 +45,7 @@ class Paciente {
     }
 }
 
-// ─── MODELO: Medicamento ──────────────────────────────
+//MODELO: Medicamento
 class Medicamento {
     private String nombre;
     private String dosis;
@@ -66,7 +66,7 @@ class Medicamento {
     }
 }
 
-// ─── MODELO: Diagnostico ──────────────────────────────
+//MODELO: Diagnostico
 class Diagnostico {
     private String codigo;
     private String descripcion;
@@ -85,7 +85,7 @@ class Diagnostico {
     }
 }
 
-// ─── MODELO: ResultadoExamen ──────────────────────────
+//MODELO: ResultadoExamen
 class ResultadoExamen {
     private static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -110,7 +110,7 @@ class ResultadoExamen {
     }
 }
 
-// ─── MODELO: Consulta ─────────────────────────────────
+//MODELO: Consulta
 class Consulta {
     private static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private static int contadorConsulta = 1;
@@ -169,7 +169,7 @@ class Consulta {
     }
 }
 
-// ─── MODELO: HistorialClinico ─────────────────────────
+//MODELO: HistorialClinico
 class HistorialClinico {
     private Paciente       paciente;
     private List<Consulta> consultas;
@@ -185,7 +185,7 @@ class HistorialClinico {
 
     public void mostrarCompleto() {
         System.out.println("\n================================================");
-        System.out.println("   HISTORIAL CLINICO -- CLINICA IBEROAMERICANA  ");
+        System.out.println("  CLINICA IBEROAMERICANA  ");
         System.out.println("================================================");
         System.out.println("  Paciente  : " + paciente.getNombre());
         System.out.println("  ID        : " + paciente.getId());
@@ -203,9 +203,9 @@ class HistorialClinico {
     }
 }
 
-// ══════════════════════════════════════════════════════
+
 //  GESTOR PRINCIPAL
-// ══════════════════════════════════════════════════════
+
 class GestorHistorialClinico {
     private List<Paciente>                pacientes;
     private Map<Integer, HistorialClinico> historiales;
@@ -217,7 +217,7 @@ class GestorHistorialClinico {
         sc          = new Scanner(System.in);
     }
 
-    // ── Helpers ───────────────────────────────────────
+    //Helpers
 
     private String leerTexto(String prompt) {
         System.out.print(prompt);
@@ -245,7 +245,7 @@ class GestorHistorialClinico {
         System.out.println("================================================");
     }
 
-    // ── Menu Principal ────────────────────────────────
+    //Menu Principal
 
     public void iniciar() {
         System.out.println();
@@ -284,7 +284,7 @@ class GestorHistorialClinico {
         }
     }
 
-    // ── Gestion de Pacientes ──────────────────────────
+    //Gestion de Pacientes
 
     private void menuPacientes() {
         boolean volver = false;
@@ -394,7 +394,7 @@ class GestorHistorialClinico {
         pausar();
     }
 
-    // ── Gestion de Consultas ──────────────────────────
+    //Gestion de Consultas
 
     private void menuConsultas() {
         boolean volver = false;
@@ -499,7 +499,7 @@ class GestorHistorialClinico {
         pausar();
     }
 
-    // ── Resultados de Examenes ────────────────────────
+    //Resultados de Examenes
 
     private void menuResultados() {
         boolean volver = false;
@@ -554,7 +554,7 @@ class GestorHistorialClinico {
         pausar();
     }
 
-    // ── Ver Historial ─────────────────────────────────
+    //Ver Historial
 
     private void menuVerHistorial() {
         encabezado("VER HISTORIAL CLINICO");
@@ -564,7 +564,7 @@ class GestorHistorialClinico {
         pausar();
     }
 
-    // ── Buscar Paciente ───────────────────────────────
+    //Buscar Paciente
 
     private void buscarPaciente() {
         encabezado("BUSCAR PACIENTE");
@@ -586,9 +586,7 @@ class GestorHistorialClinico {
     }
 }
 
-// ══════════════════════════════════════════════════════
 //  CLASE PRINCIPAL
-// ══════════════════════════════════════════════════════
 public class Main {
     public static void main(String[] args) {
         new GestorHistorialClinico().iniciar();
